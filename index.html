@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="rating">
+        <img src="images/icon-star.svg" alt="" />
+        <h1>How did we do?</h1>
+        <p>
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+        <div class="star-ratings">
+          <div class="star" data-rating="1">1</div>
+          <div class="star" data-rating="2">2</div>
+          <div class="star" data-rating="3">3</div>
+          <div class="star" data-rating="4">4</div>
+          <div class="star" data-rating="5">5</div>
+        </div>
+
+        <button id="submit">SUBMIT</button>
+      </div>
+
+      <div class="thank-you-card" id="thankYouCard">
+        <img src="images/illustration-thank-you.svg" alt="">
+        <p id="selected">You selected <span id="selectedRating"></span> out of 5</p>
+        <h2>Thank you!</h2>
+        <p>
+          We appreciate you taking the time to give a rating. If you ever need
+          more support, don’t hesitate to get in touch!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const ratingCard = document.querySelector(".rating");
+        const stars = document.querySelectorAll(".star");
+        const thankYouCard = document.getElementById("thankYouCard");
+        const selectedRating = document.getElementById("selectedRating");
+        const submitButton = document.getElementById("submit");
+
+        let currentRating = 0;
+
+        stars.forEach((star) => {
+          star.addEventListener("mouseover", () => {
+            resetStars();
+            const rating = parseInt(star.getAttribute("data-rating"));
+            highlightStars(rating);
+          });
+          star.addEventListener("click", () => {
+            currentRating = parseInt(star.getAttribute("data-rating"));
+            submitButton.disabled = false;
+          });
+        });
+
+        submitButton.addEventListener("click", () => {
+          showThankYouCard();
+        });
+
+        function resetStars() {
+          stars.forEach((star) => star.classList.remove("selected"));
+        }
+        function highlightStars(rating) {
+          for (let i = 0; i < rating; i++) {
+            stars[i].classList.add("selected");
+          }
+        }
+
+        function showThankYouCard() {
+          resetStars();
+          ratingCard.style.display = "none";
+          thankYouCard.style.display = "block";
+          selectedRating.textContent = currentRating;
+          submitButton.disabled = true;
+        }
+      });
+    </script>
+  </body>
+</html>

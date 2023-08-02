@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@100;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(216, 12%, 8%);
+  font-family: "Overpass", sans-serif;
+}
+
+.container {
+  width: 90%; /* Updated width for responsiveness */
+  max-width: 400px; /* Set maximum width for larger screens */
+  background-color: hsl(213, 19%, 18%);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.container p {
+  font-weight: 100;
+}
+
+.star-ratings {
+  display: flex;
+  justify-content: center;
+}
+
+.star {
+  width: 40px; /* Decreased size for smaller screens */
+  height: 40px; /* Decreased size for smaller screens */
+  background-color: hsl(216, 12%, 54%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px; /* Decreased margin for smaller screens */
+  margin-right: 8px; /* Decreased margin for smaller screens */
+  border-radius: 20px; /* Decreased border radius for smaller screens */
+  cursor: pointer;
+}
+
+.rating p {
+  margin-bottom: 20px;
+}
+
+#submit {
+  background-color: hsl(25, 97%, 53%);
+  width: 100%;
+  margin-top: 20px; /* Decreased margin for smaller screens */
+  padding: 15px; /* Decreased padding for smaller screens */
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+.thank-you-card {
+  display: none;
+  text-align: center;
+  align-items: center;
+}
+
+.thank-you-card img {
+  margin-bottom: 20px;
+}
+
+#selected {
+  color: hsl(25, 97%, 53%);
+  font-size: 14px; /* Decreased font size for smaller screens */
+  margin-bottom: 15px; /* Decreased margin for smaller screens */
+  background-color: hsl(213, 5%, 35%);
+  padding: 3px; /* Decreased padding for smaller screens */
+  border-radius: 10px;
+}
+.thank-you-card h1 {
+  margin-bottom: 15px; /* Decreased margin for smaller screens */
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 576px) {
+  .container {
+    width: 80%; /* Adjust width for small devices like smartphones */
+  }
+
+  .star {
+    width: 50px; /* Restore size for small devices like smartphones */
+    height: 50px; /* Restore size for small devices like smartphones */
+    margin-left: 10px; /* Restore margin for small devices like smartphones */
+    margin-right: 10px; /* Restore margin for small devices like smartphones */
+    border-radius: 25px; /* Restore border radius for small devices like smartphones */
+  }
+
+  #submit {
+    margin-top: 30px; /* Restore margin for small devices like smartphones */
+    padding: 20px; /* Restore padding for small devices like smartphones */
+    border-radius: 20px; /* Restore border radius for small devices like smartphones */
+  }
+
+  #selected {
+    font-size: 15px; /* Restore font size for small devices like smartphones */
+    margin-bottom: 20px; /* Restore margin for small devices like smartphones */
+    padding: 5px; /* Restore padding for small devices like smartphones */
+    border-radius: 15px; /* Restore border radius for small devices like smartphones */
+  }
+
+  .thank-you-card h1 {
+    margin-bottom: 20px; /* Restore margin for small devices like smartphones */
+  }
+}
